@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:todoapp/screens/home_screen.dart';
 
+import 'widgets/Tipespisok.dart';
 void main() {
-  runApp(const MyApp());
+  runApp( ChangeNotifierProvider(
+      create: (context) => TextProvider(),
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp( theme: ThemeData(
       
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(183, 100, 236, 123)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 100, 236, 123),),
         useMaterial3: true,
       ),
       home: Scaffold(
@@ -35,9 +38,10 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
-                backgroundColor: const Color.fromARGB(183, 100, 236, 123),
+                backgroundColor: const Color.fromARGB(255, 100, 236, 123),
               )),
           body: const Homepage()),
     );
   }
 }
+

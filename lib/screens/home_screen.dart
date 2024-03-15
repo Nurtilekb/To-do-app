@@ -15,7 +15,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   int _currentIndex = 0;
   
-final List<String> _items =  ['1asdcasdcasdcasdcsadjbvcgfdhgscjvbahdjschj','1asdca3','13as42'];
+final List<String> _dela =  [];
   @override
   Widget build(BuildContext context) {
    
@@ -47,9 +47,9 @@ final List<String> _items =  ['1asdcasdcasdcasdcsadjbvcgfdhgscjvbahdjschj','1asd
       body: IndexedStack(
         index: _currentIndex,
         children: [
-          Pagedoma(items: _items),
+          Pagedoma(dela: _dela,),
           const Tipespisok(),
-          Profile()
+          const Profile()
         ],
       ),
     );
