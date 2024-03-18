@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoapp/screens/home_screen.dart';
 
-import 'widgets/Tipespisok.dart';
+import 'models/task_data.dart';
 void main() {
   runApp( ChangeNotifierProvider(
-      create: (context) => TextProvider(),
+      create: (context) => TaskData(),
       child: const MyApp()));
 }
 
@@ -20,14 +20,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        drawer: const Drawer(child: Center(child: Text("wdscqwad")),),
+        drawer: const Drawer(),
           appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50),
               child: AppBar(
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                   
                     const Text(
                       'Список дел',
                       style: TextStyle(fontWeight: FontWeight.w600),

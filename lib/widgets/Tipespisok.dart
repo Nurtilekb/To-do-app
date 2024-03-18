@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todoapp/models/task_data.dart';
 
 class Tipespisok extends StatefulWidget {
+  
   const Tipespisok({
     
     super.key,
@@ -14,7 +16,8 @@ class Tipespisok extends StatefulWidget {
 }
 
 class _TipespisokState extends State<Tipespisok> {
-  
+    late String newtext;
+    late String descriptext;
   TextEditingController controller = TextEditingController();
   TextEditingController descripcontroller = TextEditingController();
 
@@ -40,9 +43,9 @@ class _TipespisokState extends State<Tipespisok> {
           child: Column(
             children: <Widget>[
               TextFormField(
-                onChanged: (newText) {
-            Provider.of<TextProvider>(context, listen: false).updateText(newText);
-          },
+               onChanged: (value){
+                newtext=value;
+              },
                 controller: controller,
                 style: const TextStyle(fontSize: 14),
                 decoration: InputDecoration(
@@ -62,7 +65,7 @@ class _TipespisokState extends State<Tipespisok> {
               const SizedBox(height: 15),
               TextFormField(
                onChanged: (newDescription) {
-            Provider.of<TextProvider>(context, listen: false).updateDescription(newDescription);
+            descriptext=newDescription;
           },
                 controller: descripcontroller,
                 style: const TextStyle(fontSize: 14),
@@ -94,32 +97,19 @@ class _TipespisokState extends State<Tipespisok> {
       actions: [
         ElevatedButton(
           onPressed: () {
-            Navigator.pop(context);
+                 Navigator.pop(context);
           },
           child: const Text('Выйти'),
         ),
         ElevatedButton(
-          onPressed: () {},
-          child: const Text('Сохранить'),
+         onPressed: (){
+                Provider.of<TaskData>(context ,listen: false).addTask(newtext) ;
+                 Provider.of<TaskData>(context ,listen: false).addTask(descriptext) ;
+                Navigator.pop(context);
+
+                }, child: const Text('Сохранить'),
         ),
       ],
     );
-  }
-}
-class TextProvider with ChangeNotifier {
-  String _text = '';
-  String _description = '';
-
-  String get text => _text;
-  String get description => _description;
-
-  void updateText(String newText) {
-    _text = newText;
-    notifyListeners();
-  }
-
-  void updateDescription(String newDescription) {
-    _description = newDescription;
-    notifyListeners();
   }
 }

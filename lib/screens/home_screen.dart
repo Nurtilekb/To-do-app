@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todoapp/screens/profile.dart';
 import 'package:todoapp/widgets/Tipespisok.dart';
 
-import '../widgets/pagedoma.dart';
-
+import 'pagedoma.dart';
+import 'search_page.dart';
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -11,14 +11,13 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
-
 class _HomepageState extends State<Homepage> {
   int _currentIndex = 0;
-  
-final List<String> _dela =  [];
+
+
+
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       backgroundColor: Colors.blue[50],
       bottomNavigationBar: BottomNavigationBar(
@@ -46,13 +45,12 @@ final List<String> _dela =  [];
       ),
       body: IndexedStack(
         index: _currentIndex,
-        children: [
-          Pagedoma(dela: _dela,),
-          const Tipespisok(),
-          const Profile()
+        children:  [
+          Pagedoma(),
+          SearchPage(),
+          Profile(),
         ],
       ),
     );
   }
 }
-
