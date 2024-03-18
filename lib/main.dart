@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:todoapp/screens/home_screen.dart';
 
 import 'models/task_data.dart';
+
 void main() {
-  runApp( ChangeNotifierProvider(
-      create: (context) => TaskData(),
-      child: const MyApp()));
+  runApp(ChangeNotifierProvider(
+      create: (context) => TaskData(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,13 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( theme: ThemeData(
-      
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 100, 236, 123),),
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 100, 236, 123),
+        ),
         useMaterial3: true,
-      ),
+      ),debugShowCheckedModeBanner: false,
       home: Scaffold(
-        drawer: const Drawer(),
+          drawer: const Drawer(),
           appBar: PreferredSize(
               preferredSize: const Size.fromHeight(50),
               child: AppBar(
@@ -43,4 +45,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

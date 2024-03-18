@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/screens/profile.dart';
-import 'package:todoapp/widgets/Tipespisok.dart';
 
 import 'pagedoma.dart';
 import 'search_page.dart';
@@ -19,7 +18,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: Colors.blueGrey,
       bottomNavigationBar: BottomNavigationBar(
         fixedColor: Colors.pinkAccent,
         items: const <BottomNavigationBarItem>[
@@ -46,8 +45,8 @@ class _HomepageState extends State<Homepage> {
       body: IndexedStack(
         index: _currentIndex,
         children:  [
-          Pagedoma(),
-          SearchPage(),
+         const Pagedoma(),
+         const SearchPage(),
           Profile(),
         ],
       ),
