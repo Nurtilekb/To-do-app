@@ -1,7 +1,9 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoapp/models/task_data.dart';
+
 
 class Tipespisok extends StatefulWidget {
   
@@ -16,10 +18,11 @@ class Tipespisok extends StatefulWidget {
 }
 
 class _TipespisokState extends State<Tipespisok> {
-    late String newtext;
+
+   late String newtext;
     late String descriptext;
   TextEditingController controller = TextEditingController();
-  TextEditingController descripcontroller = TextEditingController();
+  final TextEditingController _descripcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +70,7 @@ class _TipespisokState extends State<Tipespisok> {
                onChanged: (newDescription) {
             descriptext=newDescription;
           },
-                controller: descripcontroller,
+                controller: _descripcontroller,
                 style: const TextStyle(fontSize: 14),
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(
@@ -97,6 +100,8 @@ class _TipespisokState extends State<Tipespisok> {
       actions: [
         ElevatedButton(
           onPressed: () {
+              Provider.of<TaskData>(context ,listen: false).addTask(descriptext);
+                 print('basildi');
                  Navigator.pop(context);
           },
           child: const Text('Выйти'),

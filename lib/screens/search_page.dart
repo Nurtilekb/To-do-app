@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_gemini/google_gemini.dart';
-const apiKey = "";
+const apiKey = "AIzaSyDuNIc4KmtIrv0zTJqcZqPN1yNSh8mMc08";
 
 class SearchPage extends StatefulWidget {
   const SearchPage({
@@ -21,13 +21,14 @@ class _MyHomePageState extends State<SearchPage> {
         initialIndex: 0,
         length: 2,
         child: Scaffold(
-            appBar: AppBar(
-              title: const Text("Google Gemini"),
+            appBar: AppBar(toolbarHeight: 30,
+              title: const Text("Gemini AI"),
               centerTitle: true,
               bottom: const TabBar(
+                
                 tabs: [
-                  Tab(text: "Text Only"),
-                  Tab(text: "Text with Image"),
+                  Tab(text: "Только текст"),
+                  Tab(text: "Текст с изображением"),
                 ],
               ),
             ),
@@ -66,7 +67,7 @@ class _TextOnlyState extends State<TextOnly> {
     setState(() {
       loading = true;
       textChat.add({
-        "role": "User",
+        "role": "ME",
         "text": query,
       });
       _textController.clear();
@@ -77,7 +78,7 @@ class _TextOnlyState extends State<TextOnly> {
       setState(() {
         loading = false;
         textChat.add({
-          "role": "Gemini",
+          "role": "Твой помошник",
           "text": value.text,
         });
       });
@@ -134,7 +135,7 @@ class _TextOnlyState extends State<TextOnly> {
                 child: TextField(
                   controller: _textController,
                   decoration: InputDecoration(
-                    hintText: "Type a message",
+                    hintText: "Kaк я могу вам помочь?",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide.none),
@@ -176,7 +177,6 @@ class _TextWithImageState extends State<TextWithImage> {
   List textAndImageChat = [];
   List textWithImageChat = [];
   File? imageFile;
-
 
 
   final TextEditingController _textController = TextEditingController();
@@ -225,7 +225,7 @@ class _TextWithImageState extends State<TextWithImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: ListView.builder(
@@ -275,7 +275,7 @@ class _TextWithImageState extends State<TextWithImage> {
                     keyboardType: TextInputType.multiline,
                   ),
                 ),
-               
+                
                 IconButton(
                   icon: loading
                       ? const CircularProgressIndicator()
@@ -305,4 +305,3 @@ class _TextWithImageState extends State<TextWithImage> {
     );
   }
 }
-

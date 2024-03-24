@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -31,7 +29,7 @@ class Profile extends StatelessWidget {
             ),
             const SizedBox(
               height: 15.0,
-              width: 150.0,
+              width: 250.0,
               child: Divider(
                 color: Colors.amber,
               ),
@@ -57,8 +55,9 @@ class Profile extends StatelessWidget {
                     ),
                   )),
             ),
-            InkWell(
-              onTap: () {},
+           MaterialButton (
+            highlightColor:Colors.black12,
+            onPressed: (){},
               child: Container(
                   margin: const EdgeInsets.symmetric(
                       vertical: 5.0, horizontal: 20.0),

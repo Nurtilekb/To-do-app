@@ -27,8 +27,8 @@ class _HomepageState extends State<Homepage> {
             label: ' Дом',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Поиск',
+            icon: Icon(Icons.assistant),
+            label: 'Помошник',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -44,10 +44,11 @@ class _HomepageState extends State<Homepage> {
       ),
       body: IndexedStack(
         index: _currentIndex,
+        // ignore: prefer_const_literals_to_create_immutables
         children:  [
          const Pagedoma(),
          const SearchPage(),
-          Profile(),
+          const Profile(),
         ],
       ),
     );
