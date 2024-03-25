@@ -109,7 +109,6 @@ class _TipespisokState extends State<Tipespisok> {
         ElevatedButton(
          onPressed: (){
                 Provider.of<TaskData>(context ,listen: false).addTask(newtext) ;
-//              Provider.of<TaskData>(context ,listen: false).addTask(descriptext) ;
                 Navigator.pop(context);
 
                 }, child: const Text('Сохранить'),

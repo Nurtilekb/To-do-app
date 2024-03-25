@@ -34,8 +34,8 @@ class Profile extends StatelessWidget {
                 color: Colors.amber,
               ),
             ),
-            InkWell(
-              onTap: () {},
+            MaterialButton(
+              onPressed: () {},
               child: Container(
                   margin: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 5.0),
                   decoration: BoxDecoration(
