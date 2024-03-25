@@ -40,7 +40,7 @@ class _TipespisokState extends State<Tipespisok> {
         ),
       ),
       content: SizedBox(
-        height: vsota * 0.35,
+        height: vsota * 0.20,
         width: dlina,
         child: Form(
           child: Column(
@@ -67,8 +67,8 @@ class _TipespisokState extends State<Tipespisok> {
               ),
               const SizedBox(height: 15),
               TextFormField(
-               onChanged: (newDescription) {
-            descriptext=newDescription;
+               onChanged: (value) {
+            descriptext=value;
           },
                 controller: _descripcontroller,
                 style: const TextStyle(fontSize: 14),
@@ -87,12 +87,7 @@ class _TipespisokState extends State<Tipespisok> {
                 ),
               ),
               const SizedBox(height: 15),
-              const Row(
-                children: <Widget>[
-                  Icon(CupertinoIcons.tag, color: Colors.brown),
-                  SizedBox(width: 15.0),
-                ],
-              ),
+              
             ],
           ),
         ),
@@ -100,15 +95,13 @@ class _TipespisokState extends State<Tipespisok> {
       actions: [
         ElevatedButton(
           onPressed: () {
-              Provider.of<TaskData>(context ,listen: false).addTask(descriptext);
-                 print('basildi');
                  Navigator.pop(context);
           },
           child: const Text('Выйти'),
         ),
         ElevatedButton(
          onPressed: (){
-                Provider.of<TaskData>(context ,listen: false).addTask(newtext) ;
+                Provider.of<TaskData>(context ,listen: false).addTask(newtext,descriptext) ;
                 Navigator.pop(context);
 
                 }, child: const Text('Сохранить'),

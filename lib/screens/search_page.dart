@@ -21,9 +21,9 @@ class _MyHomePageState extends State<SearchPage> {
         initialIndex: 0,
         length: 2,
         child: Scaffold(
-            appBar: AppBar(toolbarHeight: 30,
-              title: const Text("Gemini AI"),
-              centerTitle: true,
+            appBar: AppBar(toolbarHeight: 0,
+            backgroundColor: Color.fromARGB(255, 136, 186, 209),
+            
               bottom: const TabBar(
                 
                 tabs: [
@@ -67,7 +67,7 @@ class _TextOnlyState extends State<TextOnly> {
     setState(() {
       loading = true;
       textChat.add({
-        "role": "ME",
+        "role": "Я",
         "text": query,
       });
       _textController.clear();
@@ -101,7 +101,7 @@ class _TextOnlyState extends State<TextOnly> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Color.fromARGB(255, 199, 223, 234),
         body: Column(
       children: [
         Expanded(
@@ -225,6 +225,7 @@ class _TextWithImageState extends State<TextWithImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 199, 234, 221),
       body: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
@@ -265,7 +266,7 @@ class _TextWithImageState extends State<TextWithImage> {
                   child: TextField(
                     controller: _textController,
                     decoration: InputDecoration(
-                      hintText: "Write a message",
+                      hintText: "Напиши письмо маган!",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: BorderSide.none),

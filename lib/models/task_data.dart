@@ -23,12 +23,12 @@ class TaskData extends ChangeNotifier {
 
   
 
-  void addTask(String newTaskTitle)async {
-    final task = Task(name: newTaskTitle);
-    tasks.add(task);
-    saveData();
-    notifyListeners();
-  }
+  void addTask(String newTaskTitle, String taskDescription) {
+  final task = Task(name: newTaskTitle, descriptext: taskDescription);
+  tasks.add(task);
+  saveData();
+  notifyListeners();
+}
 
   void updateTask(Task task) {
     task.toggleDone();

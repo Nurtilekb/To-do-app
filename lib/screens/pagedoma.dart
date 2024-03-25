@@ -4,9 +4,9 @@ import 'package:todoapp/widgets/task_list.dart';
 import '../widgets/Tipespisok.dart';
 
 class Pagedoma extends StatefulWidget {
-  const Pagedoma({super.key, });
-
- 
+  const Pagedoma({
+    super.key,
+  });
 
   @override
   State<Pagedoma> createState() => _PagedomaState();
@@ -17,25 +17,28 @@ class _PagedomaState extends State<Pagedoma> {
 
   @override
   Widget build(BuildContext context) {
-   
-
-    return Column(
+    return Stack(
       children: [
         const TaskList(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: FloatingActionButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return const Tipespisok();
-                },
-              );
-            },
-            child: const Icon(Icons.add),
-          ),
-        )
+        Positioned(
+            right: 20,
+            bottom: 20,
+            child: MaterialButton(
+              height: 40,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return const Tipespisok();
+                  },
+                );
+              },
+              color: Colors.orange,
+              textColor: Colors.white,
+              child: const Row(
+                children: [Icon(Icons.add), Text('  Добавить заметку')],
+              ),
+            ))
       ],
     );
   }
